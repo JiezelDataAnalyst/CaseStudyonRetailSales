@@ -3,6 +3,7 @@ This project demonstrates my full data analytics workflow—from data cleaning a
 
 Note: This folder includes all project components:
 - Data Analysis Plan
+- Case Study Report
 - Raw and cleaned datasets
 - SQL queries and documentation
 - Tableau dashboard file (.twb)
