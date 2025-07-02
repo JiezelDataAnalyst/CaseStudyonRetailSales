@@ -97,12 +97,7 @@ ORDER BY total_sales DESC;
 
 -- Customer Demographics
 
--- How does customer demographics such as age and gender influence spending and product preferences?
-SELECT product_category, gender, COUNT(*) AS gender_count, SUM(total_amount) AS total_sales
-FROM retail_sales_staging
-WHERE Year(date) = 2023
-GROUP BY gender, product_category
-ORDER BY product_category, total_sales DESC;
+-- Segmentation of Customers by Age
 
 -- Grouping customers by age ranges and assign labels to each group.
 SELECT 
@@ -130,12 +125,19 @@ FROM retail_sales_staging
 
 SELECT * FROM age_segmentation;
 
--- Product category distribution by age groups
+-- How does customer demographics such as age and gender influence spending and product preferences?
+
 SELECT age_group,product_category, COUNT(*) AS product_count
 FROM age_segmentation
 WHERE Year(date) = 2023
 GROUP BY age_group, product_category
 ORDER BY age_group, product_category, product_count DESC;
+
+SELECT product_category, gender, COUNT(*) AS gender_count, SUM(total_amount) AS total_sales
+FROM retail_sales_staging
+WHERE Year(date) = 2023
+GROUP BY gender, product_category
+ORDER BY product_category, total_sales DESC;
 
 -- 2. Customer Segmentation (RFM)
 
